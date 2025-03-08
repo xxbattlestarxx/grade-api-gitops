@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: grade-submission-api
-        image: ghcr.io/rslim087a/kubernetes-cicd-tutorial:latest
+        image: ghcr.io/rslim087a/kubernetes-cicd-tutorial:92e1e5c9d0db307acff66edc38acc5ad9d896960
         ports:
         - containerPort: 3000
         resources:
