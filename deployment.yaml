@@ -13,6 +13,8 @@ spec:
       labels:
         app: grade-submission-api
     spec:
+      imagePullSecrets:
+      - name: ghcr-secret
       containers:
       - name: grade-submission-api
         image: ghcr.io/rslim087a/kubernetes-cicd-tutorial:latest
