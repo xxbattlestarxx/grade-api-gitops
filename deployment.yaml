@@ -35,6 +35,15 @@ spec:
             value: "${{ secrets.telegram_chat_id_koopje }}" # <-- Verwijst naar je GitHub Secret
           - name: gemini_api_key
             value: "${{ secrets.gemini_api_key }}" # <-- Verwijst naar je GitHub Secret
+            # Hier staan je niet-geheime variabelen (direct in het bestand)
+          - name: category_id
+            value: "3022" # <-- Dit is de niet-geheime variabele
+          - name: poll_interval
+            value: "5" # <-- Dit is de niet-geheime variabele
+          - name: BRANDS_TO_MONITOR
+            value: "Ubiquiti, ubiquiti, unifi, unify, Unifi, Unify"
+
+            
 ---
 apiVersion: v1
 kind: Service
