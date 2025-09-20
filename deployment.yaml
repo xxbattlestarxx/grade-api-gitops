@@ -43,14 +43,13 @@ spec:
             secretKeyRef:
               name: mp-geheimen
               key: gemini_api_key
-          - name: category_id
-            value: "3022" # <-- Dit is de niet-geheime variabele
-          - name: poll_interval
-            value: "5" # <-- Dit is de niet-geheime variabele
-          - name: BRANDS_TO_MONITOR
-            value: "Ubiquiti, ubiquiti, unifi, unify, Unifi, Unify"
+        - name: category_id
+          value: "3022"
+        - name: poll_interval
+          value: "5"
+        - name: BRANDS_TO_MONITOR
+          value: "Ubiquiti, ubiquiti, unifi, unify, Unifi, Unify"
 
-            
 ---
 apiVersion: v1
 kind: Service
