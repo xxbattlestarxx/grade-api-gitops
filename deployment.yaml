@@ -46,7 +46,7 @@ spec:
         - name: category_id
           value: "3022"
         - name: poll_interval
-          value: "5"
+          value: "1"
         - name: BRANDS_TO_MONITOR
           value: "Ubiquiti, ubiquiti, unifi, unify, Unifi, Unify"
 
