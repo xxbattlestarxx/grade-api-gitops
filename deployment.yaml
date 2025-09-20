@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grade-submission-api
+  name: marktplaats-handler
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: grade-submission-api
+      app: marktplaats-handler
   template:
     metadata:
       labels:
-        app: grade-submission-api
+        app: marktplaats-handler
     spec:
       imagePullSecrets:
       - name: ghcr-secret
       containers:
-      - name: grade-submission-api
+      - name: marktplaats-handler
         image: ghcr.io/xxbattlestarxx/kubernetes-cicd-tutorial:cc598f3f8f7404b965f0562206f953188f230d0d
         ports:
         - containerPort: 3000
@@ -27,15 +27,23 @@ spec:
           requests:
             memory: "128Mi"
             cpu: "250m"
+        env:
+          # Voeg hier je geheimen toe als omgevingsvariabelen
+          - name: telegram_bot_token_koopje
+            value: "${{ secrets.telegram_bot_token_koopje }}" # <-- Verwijst naar je GitHub Secret
+          - name: telegram_chat_id_koopje
+            value: "${{ secrets.telegram_chat_id_koopje }}" # <-- Verwijst naar je GitHub Secret
+          - name: gemini_api_key
+            value: "${{ secrets.gemini_api_key }}" # <-- Verwijst naar je GitHub Secret
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: grade-submission-api
+  name: marktplaats-handler
   namespace: default
 spec:
   selector:
-    app: grade-submission-api
+    app: marktplaats-handler
   ports:
   - port: 80
     targetPort: 3000
