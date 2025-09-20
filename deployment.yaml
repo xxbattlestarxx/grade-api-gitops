@@ -28,14 +28,21 @@ spec:
             memory: "128Mi"
             cpu: "250m"
         env:
-          # Voeg hier je geheimen toe als omgevingsvariabelen
-          - name: telegram_bot_token_koopje
-            value: "${{ secrets.telegram_bot_token_koopje }}" # <-- Verwijst naar je GitHub Secret
-          - name: telegram_chat_id_koopje
-            value: "${{ secrets.telegram_chat_id_koopje }}" # <-- Verwijst naar je GitHub Secret
-          - name: gemini_api_key
-            value: "${{ secrets.gemini_api_key }}" # <-- Verwijst naar je GitHub Secret
-            # Hier staan je niet-geheime variabelen (direct in het bestand)
+        - name: TELEGRAM_BOT_TOKEN_KOOPJE
+          valueFrom:
+            secretKeyRef:
+              name: mp-geheimen
+              key: telegram_bot_token_koopje
+        - name: TELEGRAM_CHAT_ID_KOOPJE
+          valueFrom:
+            secretKeyRef:
+              name: mp-geheimen
+              key: telegram_chat_id_koopje
+        - name: GEMINI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: mp-geheimen
+              key: gemini_api_key
           - name: category_id
             value: "3022" # <-- Dit is de niet-geheime variabele
           - name: poll_interval
