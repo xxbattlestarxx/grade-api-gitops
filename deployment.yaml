@@ -17,7 +17,7 @@ spec:
       - name: ghcr-secret
       containers:
       - name: marktplaats-handler
-        image: ghcr.io/xxbattlestarxx/kubernetes-cicd-tutorial:7b8df21a5de98a1b180d136ade3d188aa261f5d0
+        image: ghcr.io/xxbattlestarxx/kubernetes-cicd-tutorial:70ac849d81186803551ce5c3dbb3ab4e0273f23f
         ports:
         - containerPort: 3000
         resources:
